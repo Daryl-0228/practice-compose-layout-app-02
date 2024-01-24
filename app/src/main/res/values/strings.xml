@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PracticalLayoutExercises2</string>
+    <string name="completion_message">All tasks completed</string>
+    <string name="tasks_completion_message">Nice work!</string>
 </resources>
