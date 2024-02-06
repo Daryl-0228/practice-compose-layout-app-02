@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -41,36 +38,25 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TasksCompletionMessageApp() {
-  CompletionItem(
-    imagePainter = painterResource(R.drawable.ic_task_completed),
-    completionMessage = stringResource(R.string.completion_message),
-    tasksCompletionMessage = stringResource(R.string.tasks_completion_message)
-  )
-}
-
-@Composable
-fun CompletionItem(
-  imagePainter: Painter,
-  completionMessage: String,
-  tasksCompletionMessage: String,
-  modifier: Modifier = Modifier
-) {
   Column(
+    modifier = Modifier
+      .fillMaxWidth()
+      .fillMaxHeight(),
     verticalArrangement = Arrangement.Center,
-    modifier = modifier
+    horizontalAlignment = Alignment.CenterHorizontally
+
   ) {
-    Image(painter = imagePainter, contentDescription = null, modifier = Modifier.align(Alignment.CenterHorizontally))
+    val image = painterResource(R.drawable.ic_task_completed)
+    Image(painter = image, contentDescription = null)
     Text(
-      text = completionMessage,
+      text = stringResource(R.string.completion_message),
       fontWeight = FontWeight.Bold,
       modifier = Modifier
-        .padding(top = 24.dp, bottom = 8.dp)
-        .align(alignment = Alignment.CenterHorizontally)
+        .padding(top = 24.dp, bottom = 8.dp),
     )
     Text(
-      text = tasksCompletionMessage,
-      fontSize = 16.sp,
-      modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+      text = stringResource(R.string.tasks_completion_message),
+      fontSize = 16.sp
     )
   }
 }
